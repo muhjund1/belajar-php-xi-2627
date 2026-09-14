@@ -163,7 +163,7 @@ $dataTamu = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <h1>Buku Tamu</h1>
 
-    <from action="proses.php" method="POST">
+    <form action="proses.php" method="POST">
 
     <p>
         Nama: <br>
