@@ -1,5 +1,5 @@
 <?php
-require "koneksi.php";
+require __DIR__ . "/koneksi.php";
 
 $sql = "SELECT * FROM tamu ORDER BY id DESC";
 $stmt = $pdo->query($sql);
@@ -11,7 +11,7 @@ $dataTamu = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html>
     <head>
         <meta charset="UTF-8">
-        <tittle>Buku Tamu</tittle>
+        <title>Buku Tamu</title>
         <style>
             :root {
                 --primary: #2563eb;
@@ -166,20 +166,20 @@ $dataTamu = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <form action="proses.php" method="POST">
 
     <p>
-        Nama: <br>
-        <input type="text" name="nama" required>
+        <label for="nama">Nama:</label><br>
+        <input id="nama" type="text" name="nama" maxlength="100" required>
     </p>
     <p>
-        Email: <br>
-        <input type="email" name="email" required>
+        <label for="email">Email:</label><br>
+        <input id="email" type="email" name="email" maxlength="255" required>
     </p>
     <p>
-        Pesan: <br>
-        <textarea name="pesan" required></textarea>
+        <label for="pesan">Pesan:</label><br>
+        <textarea id="pesan" name="pesan" maxlength="1000" required></textarea>
     </p>
 
     <button type="submit">Simpan</button>
-</from>
+</form>
 
 <hr>
 
@@ -189,8 +189,8 @@ $dataTamu = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <h3><?php echo htmlspecialchars($tamu['nama']); ?></h3>
     <p>Email: <?php echo htmlspecialchars($tamu['email']); ?></p>
-    <p><?php echo htmlspescialchars($tamu['pesan']); ?></p>
-    <small><?php echo $tamu["created_at"]; ?></small>
+    <p><?php echo htmlspecialchars($tamu['pesan'], ENT_QUOTES, 'UTF-8'); ?></p>
+    <small><?php echo htmlspecialchars($tamu['created_at'], ENT_QUOTES, 'UTF-8'); ?></small>
     <hr>
 
     <?php endforeach; ?>

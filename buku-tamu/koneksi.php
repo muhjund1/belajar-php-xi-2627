@@ -13,11 +13,9 @@ try {
         $password
     );
 
-    $pdo->setAttribute(
-        pdo::ATTR_ERRMODE,
-        pdo::ERRMODE_EXCEPTION
-    );
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 } catch (PDOException $e) {
-    die("Koneksi gagal: " . $e->getMessage());
+    http_response_code(500);
+    die("Koneksi ke database gagal.");
 }
