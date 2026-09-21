@@ -187,6 +187,10 @@ $dataTamu = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <label for="pesan">Pesan:</label><br>
         <textarea id="pesan" name="pesan" maxlength="1000" required></textarea>
     </p>
+    <p>
+        <label for="nomor_telepon">Nomor Telepon:</label><br>
+        <input id="nomor_telepon" type="text" name="nomor_telepon" maxlength="15">
+    </p>
 
     <button type="submit">Simpan</button>
 </form>
@@ -201,6 +205,9 @@ $dataTamu = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <p>Email: <?php echo htmlspecialchars($tamu['email']); ?></p>
     <p><?php echo htmlspecialchars($tamu['pesan'], ENT_QUOTES, 'UTF-8'); ?></p>
     <small><?php echo htmlspecialchars($tamu['created_at'], ENT_QUOTES, 'UTF-8'); ?></small>
+    <?php if (!empty($tamu['nomor_telepon'])): ?>
+        <p>Nomor Telepon: <?php echo htmlspecialchars($tamu['nomor_telepon'], ENT_QUOTES, 'UTF-8'); ?></p>
+    <?php endif; ?>
     <p class="actions">
         <a href="edit.php?id=<?php echo (int) $tamu['id']; ?>">Edit</a>
     

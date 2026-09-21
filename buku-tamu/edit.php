@@ -85,6 +85,11 @@ if (!$tamu) {
             <textarea name="pesan" required><?php echo htmlspecialchars($tamu["pesan"]); ?></textarea>  
         </p>
 
+        <p>
+            Nomor Telepon:<br>
+            <input type="text" name="nomor_telepon" value="<?php echo htmlspecialchars($tamu["nomor_telepon"] ?? ''); ?>">
+        </p>
+
         <button type="submit">Simpan Perubahan</button>
     </form>
 
