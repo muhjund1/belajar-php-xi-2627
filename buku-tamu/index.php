@@ -149,6 +149,16 @@ $dataTamu = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 font-size: 0.82rem;
             }
 
+            .actions {
+                margin-top: 6px;
+                font-size: 0.9rem;
+                color: var(--muted);
+            }
+
+
+
+            
+
             @media (max-width: 540px) {
                 body {
                     padding: 28px 14px;
@@ -191,8 +201,15 @@ $dataTamu = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <p>Email: <?php echo htmlspecialchars($tamu['email']); ?></p>
     <p><?php echo htmlspecialchars($tamu['pesan'], ENT_QUOTES, 'UTF-8'); ?></p>
     <small><?php echo htmlspecialchars($tamu['created_at'], ENT_QUOTES, 'UTF-8'); ?></small>
+    <p class="actions">
+        <a href="edit.php?id=<?php echo (int) $tamu['id']; ?>">Edit</a>
+    
+    
+        <a href="hapus.php?id=<?php echo $tamu["id"]; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus tamu ini?')">Hapus</a>
+    </p>
     <hr>
 
     <?php endforeach; ?>
 </body>
 </html>
+
